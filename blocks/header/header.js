@@ -108,16 +108,63 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
  * @param {Element} block The header block element
  */
 export default async function decorate(block) {
-  // load nav as fragment
-  const navMeta = getMetadata('nav');
-  const navPath = navMeta ? new URL(navMeta, window.location).pathname : '/nav';
-  const fragment = await loadFragment(navPath);
+  // Hardcoded Nav HTML matching the Webanix design
+  const navHtml = `
+    <div>
+      <div>
+        <p>
+          <a href="/" title="Webanix" style="text-decoration: none; display: flex; align-items: center; gap: 5px;">
+            <span style="color: #ff3366; font-size: 28px; font-weight: bold; line-height: 1;">Webanix</span>
+            <span style="color: white; font-size: 24px; font-weight: bold; line-height: 1;">ebanix</span>
+          </a>
+        </p>
+      </div>
+      <div>
+        <div class="default-content-wrapper">
+          <ul>
+            <li>Company
+              <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#team">Team</a></li>
+              </ul>
+            </li>
+            <li>Services
+              <ul>
+                <li><a href="#web">Web Dev</a></li>
+                <li><a href="#app">App Dev</a></li>
+              </ul>
+            </li>
+            <li>Industries
+              <ul>
+                <li><a href="#health">Healthcare</a></li>
+                <li><a href="#finance">Finance</a></li>
+              </ul>
+            </li>
+            <li><a href="/case-studies">Case Studies</a></li>
+            <li><a href="/products">Products</a></li>
+            <li><a href="/contact">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <p class="button-container">
+          <a href="/quote" class="button primary" style="background-color: #ff3366; border-color: #ff3366; color: white; border-radius: 4px;">Get a Quote</a>
+        </p>
+      </div>
+    </div>
+  `;
+
+  // Convert the string into a DOM element
+  const fragment = document.createRange().createContextualFragment(navHtml);
+  const container = fragment.firstElementChild;
 
   // decorate nav DOM
   block.textContent = '';
   const nav = document.createElement('nav');
   nav.id = 'nav';
-  while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
+
+  // Append the 3 main sections (brand, sections, tools)
+  while (container.firstElementChild) nav.append(container.firstElementChild);
 
   const classes = ['brand', 'sections', 'tools'];
   classes.forEach((c, i) => {
