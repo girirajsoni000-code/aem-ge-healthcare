@@ -30,6 +30,12 @@
   height: 100%;
 }
 
+@media (width >= 600px) {
+  .hero {
+    padding: 40px 28px;
+  }
+}
+
 @media (width >= 900px) {
   .hero {
     padding: 40px 32px;

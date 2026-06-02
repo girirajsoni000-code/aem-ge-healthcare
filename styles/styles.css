@@ -53,6 +53,23 @@
   src: local('Arial');
 }
 
+@media (width >= 600px) {
+  :root {
+    /* body sizes */
+    --body-font-size-m: 20px;
+    --body-font-size-s: 17px;
+    --body-font-size-xs: 15px;
+
+    /* heading sizes */
+    --heading-font-size-xxl: 50px;
+    --heading-font-size-xl: 40px;
+    --heading-font-size-l: 30px;
+    --heading-font-size-m: 24px;
+    --heading-font-size-s: 22px;
+    --heading-font-size-xs: 20px;
+  }
+}
+
 @media (width >= 900px) {
   :root {
     /* body sizes */
@@ -68,6 +85,11 @@
     --heading-font-size-s: 20px;
     --heading-font-size-xs: 18px;
   }
+}
+
+html,
+body {
+  overflow-x: hidden;
 }
 
 body {
@@ -143,7 +165,7 @@ pre {
 }
 
 main > div {
-  margin: 40px 16px;
+  margin: 40px 24px;
 }
 
 input,
@@ -242,9 +264,23 @@ main > .section:first-of-type {
   margin-top: 0;
 }
 
+@media (width >= 600px) {
+  main > .section > div {
+    padding: 0 28px;
+  }
+
+  main > div {
+    margin: 40px 28px;
+  }
+}
+
 @media (width >= 900px) {
   main > .section > div {
     padding: 0 32px;
+  }
+
+  main > div {
+    margin: 40px 32px;
   }
 }
 
