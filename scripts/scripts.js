@@ -155,9 +155,9 @@ export function decorateMain(main) {
   const topics = [
     'Artificial Intelligence', 'Efficiency', 'Innovation', 'Access', 'Burnout',
     'Cyber Security', 'Newest Products', 'Patient outcomes', 'Cost Savings',
-    'COVID-19', 'Diversity', 'Patient Experience'
+    'COVID-19', 'Diversity', 'Patient Experience',
   ];
-  const topicButtons = topics.map(t => `<button style="background: white; border: 1px solid #ddd; border-radius: 24px; padding: 12px 24px; font-size: 15px; color: #333; cursor: pointer; transition: all 0.2s;">${t}</button>`).join('');
+  const topicButtons = topics.map((t) => `<button style="background: white; border: 1px solid #ddd; border-radius: 24px; padding: 12px 24px; font-size: 15px; color: #333; cursor: pointer; transition: all 0.2s;">${t}</button>`).join('');
 
   topicSection.innerHTML = `
     <div style="background-color: #f8f6f9; padding: 80px 5%; font-family: 'Inter', sans-serif; text-align: center;">
@@ -191,10 +191,10 @@ export function decorateMain(main) {
     { title: 'Patient Monitoring', img: 'https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?w=400&h=300&fit=crop' },
     { title: 'Diagnostic Cardiology', img: 'https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?w=400&h=300&fit=crop' },
     { title: 'Maternal Infant Care', img: 'https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=400&h=300&fit=crop' },
-    { title: 'Bone Health', img: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400&h=300&fit=crop' }
+    { title: 'Bone Health', img: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400&h=300&fit=crop' },
   ];
 
-  const productCards = products.map(p => `
+  const productCards = products.map((p) => `
     <div style="flex: 0 0 calc(25% - 18px); background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.06); display: flex; flex-direction: column;">
       <div style="height: 220px; width: 100%; background: #fff; display: flex; align-items: center; justify-content: center;">
         <img src="${p.img}" alt="${p.title}" style="width: 100%; height: 100%; object-fit: cover;" />
@@ -252,29 +252,29 @@ export function decorateMain(main) {
       title: '5 reasons single sign-on (SSO) matters for handheld ultrasound programs',
       img: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400&h=250&fit=crop',
       date: 'May 05, 2026',
-      category: 'Healthcare Technology Management'
+      category: 'Healthcare Technology Management',
     },
     {
       title: 'How virtual ultrasound collaboration can strengthen confidence and consistency',
       img: 'https://images.unsplash.com/photo-1551076805-e1869043e560?w=400&h=250&fit=crop',
       date: 'May 04, 2026',
-      category: 'Radiology'
+      category: 'Radiology',
     },
     {
       title: 'Why MSK Physicians Choose L4-20t-RS for High-Performance Ultrasound',
       img: 'https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?w=400&h=250&fit=crop',
       date: 'April 29, 2026',
-      category: ''
+      category: '',
     },
     {
       title: 'Top Features to Look for in a Shared Services Ultrasound System',
       img: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400&h=250&fit=crop',
       date: 'April 29, 2026',
-      category: ''
-    }
+      category: '',
+    },
   ];
 
-  const newsCards = newsItems.map(n => `
+  const newsCards = newsItems.map((n) => `
     <div style="display: flex; flex-direction: column; gap: 16px;">
       <div style="height: 180px; width: 100%; overflow: hidden;">
         <img src="${n.img}" alt="${n.title}" style="width: 100%; height: 100%; object-fit: cover;" />

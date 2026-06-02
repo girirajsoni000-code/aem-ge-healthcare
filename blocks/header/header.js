@@ -180,21 +180,21 @@ export default async function decorate(block) {
         const href = link.getAttribute('href');
         if (href && href.startsWith('#')) {
           let targetElement = null;
-          
+
           // Map hashes to custom wrappers injected in scripts.js
           if (href === '#products') targetElement = document.querySelector('.products-section-wrapper');
           else if (href === '#insights') targetElement = document.querySelector('.whats-new-section-wrapper');
           else if (href === '#about') targetElement = document.querySelector('.sustainability-section-wrapper');
           else if (href === '#solutions' || href === '#services' || href === '#support') targetElement = document.querySelector('.topic-section-wrapper');
-          
+
           if (targetElement) {
             e.preventDefault();
             const headerOffset = document.querySelector('header').offsetHeight || 80;
             const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
-            
+
             window.scrollTo({
               top: elementPosition - headerOffset,
-              behavior: 'smooth'
+              behavior: 'smooth',
             });
 
             // Close mobile menu if it is open
@@ -227,7 +227,7 @@ export default async function decorate(block) {
 
   const heroImageContainer = document.createElement('div');
   heroImageContainer.className = 'header-hero-image';
-  heroImageContainer.innerHTML = `<img src="https://www.gehealthcare.in/-/jssmedia/gehc/us/images/home/banner/18-06-2024/sustainability-hero---1920x760.jpg?h=760&iar=0&w=1920&rev=-1&hash=E68534D9264C09373F82A9EF911BF716" alt="Hero Image" style="width: 100%; height: auto; display: block; object-fit: cover; max-height: 760px;" />`;
+  heroImageContainer.innerHTML = '<img src="https://www.gehealthcare.in/-/jssmedia/gehc/us/images/home/banner/18-06-2024/sustainability-hero---1920x760.jpg?h=760&iar=0&w=1920&rev=-1&hash=E68534D9264C09373F82A9EF911BF716" alt="Hero Image" style="width: 100%; height: auto; display: block; object-fit: cover; max-height: 760px;" />';
   block.append(heroImageContainer);
 
   // Add AI Dialog
@@ -307,15 +307,17 @@ export default async function decorate(block) {
       setTimeout(() => {
         const aiMsg = document.createElement('div');
         aiMsg.style.cssText = 'background: white; padding: 12px; border-radius: 8px; border-bottom-left-radius: 0; max-width: 85%; box-shadow: 0 2px 4px rgba(0,0,0,0.05); font-size: 14px; color: #333; line-height: 1.4;';
-        aiMsg.innerHTML = "Thanks for your message! Our AI is analyzing your request and a representative will connect with you shortly.";
+        aiMsg.innerHTML = 'Thanks for your message! Our AI is analyzing your request and a representative will connect with you shortly.';
         messagesArea.appendChild(aiMsg);
         messagesArea.scrollTop = messagesArea.scrollHeight;
       }, 1000);
     };
 
     if (sendBtn) sendBtn.addEventListener('click', sendMessage);
-    if (chatInput) chatInput.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') sendMessage();
-    });
+    if (chatInput) {
+      chatInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') sendMessage();
+      });
+    }
   }, 500);
 }
