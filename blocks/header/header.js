@@ -110,42 +110,27 @@ export default async function decorate(block) {
     <div>
       <div>
         <p>
-          <a href="/" title="Webanix" style="text-decoration: none; display: flex; align-items: center; gap: 5px;">
-            <span style="color: #ff3366; font-size: 28px; font-weight: bold; line-height: 1;">Webanix</span>
-            <span style="color: white; font-size: 24px; font-weight: bold; line-height: 1;">ebanix</span>
+          <a href="/" title="GE HealthCare" style="text-decoration: none; display: flex; flex-direction: column; align-items: flex-start; gap: 4px;">
+            <div style="width: 28px; height: 28px; background: #6a1b9a; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-family: sans-serif; letter-spacing: -1px; font-size: 14px;">GE</div>
+            
           </a>
         </p>
       </div>
       <div>
         <div class="default-content-wrapper">
-          <ul>
-            <li>Company
-              <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#team">Team</a></li>
-              </ul>
-            </li>
-            <li>Services
-              <ul>
-                <li><a href="#web">Web Dev</a></li>
-                <li><a href="#app">App Dev</a></li>
-              </ul>
-            </li>
-            <li>Industries
-              <ul>
-                <li><a href="#health">Healthcare</a></li>
-                <li><a href="#finance">Finance</a></li>
-              </ul>
-            </li>
-            <li><a href="/case-studies">Case Studies</a></li>
-            <li><a href="/products">Products</a></li>
-            <li><a href="/contact">Contact Us</a></li>
+          <ul style="color: #2c2c2c; font-weight: 500;">
+            <li><a href="#products">Products</a></li>
+            <li><a href="#solutions">Solutions</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#insights">Insights</a></li>
+            <li><a href="#support">Support</a></li>
+            <li><a href="#about">About Us</a></li>
           </ul>
         </div>
       </div>
       <div>
         <p class="button-container">
-          <a href="/quote" class="button primary" style="background-color: #ff3366; border-color: #ff3366; color: white; border-radius: 4px;">Get a Quote</a>
+          <a href="#" id="ai-contact-btn" class="button primary" style="background-color: #6a1b9a; border-color: #6a1b9a; color: white; border-radius: 24px; padding: 10px 24px; text-transform: uppercase; font-size: 13px; font-weight: bold; letter-spacing: 1px;">Contact Us</a>
         </p>
       </div>
     </div>
@@ -188,6 +173,38 @@ export default async function decorate(block) {
         }
       });
     });
+
+    // Custom smooth scroll logic for navigation links
+    navSections.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          let targetElement = null;
+          
+          // Map hashes to custom wrappers injected in scripts.js
+          if (href === '#products') targetElement = document.querySelector('.products-section-wrapper');
+          else if (href === '#insights') targetElement = document.querySelector('.whats-new-section-wrapper');
+          else if (href === '#about') targetElement = document.querySelector('.sustainability-section-wrapper');
+          else if (href === '#solutions' || href === '#services' || href === '#support') targetElement = document.querySelector('.topic-section-wrapper');
+          
+          if (targetElement) {
+            e.preventDefault();
+            const headerOffset = document.querySelector('header').offsetHeight || 80;
+            const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+            
+            window.scrollTo({
+              top: elementPosition - headerOffset,
+              behavior: 'smooth'
+            });
+
+            // Close mobile menu if it is open
+            if (!isDesktop.matches) {
+              toggleMenu(nav, navSections, false);
+            }
+          }
+        }
+      });
+    });
   }
 
   // hamburger for mobile
@@ -207,4 +224,98 @@ export default async function decorate(block) {
   navWrapper.className = 'nav-wrapper';
   navWrapper.append(nav);
   block.append(navWrapper);
+
+  const heroImageContainer = document.createElement('div');
+  heroImageContainer.className = 'header-hero-image';
+  heroImageContainer.innerHTML = `<img src="https://www.gehealthcare.in/-/jssmedia/gehc/us/images/home/banner/18-06-2024/sustainability-hero---1920x760.jpg?h=760&iar=0&w=1920&rev=-1&hash=E68534D9264C09373F82A9EF911BF716" alt="Hero Image" style="width: 100%; height: auto; display: block; object-fit: cover; max-height: 760px;" />`;
+  block.append(heroImageContainer);
+
+  // Add AI Dialog
+  const aiDialog = document.createElement('div');
+  aiDialog.id = 'ai-chat-dialog';
+  aiDialog.style.cssText = `
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 350px;
+    height: 500px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    z-index: 9999;
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+  `;
+
+  aiDialog.innerHTML = `
+    <div style="background: #6a1b9a; color: white; padding: 16px; display: flex; justify-content: space-between; align-items: center;">
+      <div style="font-weight: 600; font-size: 16px; display: flex; align-items: center; gap: 8px;">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+        AI Assistant
+      </div>
+      <button id="close-ai-dialog" style="background: none; border: none; color: white; font-size: 24px; cursor: pointer; line-height: 1;">&times;</button>
+    </div>
+    <div id="ai-chat-messages" style="flex-grow: 1; padding: 16px; overflow-y: auto; background: #f8f6f9; display: flex; flex-direction: column; gap: 12px;">
+      <div style="background: white; padding: 12px; border-radius: 8px; border-bottom-left-radius: 0; max-width: 85%; box-shadow: 0 2px 4px rgba(0,0,0,0.05); font-size: 14px; color: #333; line-height: 1.4;">
+        Hi! I'm the GE HealthCare AI assistant. How can I help you today?
+      </div>
+    </div>
+    <div style="padding: 16px; background: white; border-top: 1px solid #eee; display: flex; gap: 8px; align-items: center;">
+      <input type="text" id="ai-chat-input" placeholder="Type your message..." style="flex-grow: 1; padding: 10px 16px; border: 1px solid #ccc; border-radius: 20px; outline: none; font-size: 14px;">
+      <button id="ai-chat-send" style="background: #6a1b9a; color: white; border: none; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; display: flex; justify-content: center; align-items: center;">
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path></svg>
+      </button>
+    </div>
+  `;
+
+  document.body.appendChild(aiDialog);
+
+  setTimeout(() => {
+    const contactBtn = document.getElementById('ai-contact-btn');
+    const closeBtn = document.getElementById('close-ai-dialog');
+    const sendBtn = document.getElementById('ai-chat-send');
+    const chatInput = document.getElementById('ai-chat-input');
+    const messagesArea = document.getElementById('ai-chat-messages');
+
+    if (contactBtn) {
+      contactBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        aiDialog.style.display = 'flex';
+      });
+    }
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        aiDialog.style.display = 'none';
+      });
+    }
+
+    const sendMessage = () => {
+      const text = chatInput.value.trim();
+      if (!text) return;
+
+      const userMsg = document.createElement('div');
+      userMsg.style.cssText = 'background: #6a1b9a; color: white; padding: 12px; border-radius: 8px; border-bottom-right-radius: 0; max-width: 85%; align-self: flex-end; font-size: 14px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); line-height: 1.4;';
+      userMsg.textContent = text;
+      messagesArea.appendChild(userMsg);
+      chatInput.value = '';
+      messagesArea.scrollTop = messagesArea.scrollHeight;
+
+      // Simulate AI typing delay
+      setTimeout(() => {
+        const aiMsg = document.createElement('div');
+        aiMsg.style.cssText = 'background: white; padding: 12px; border-radius: 8px; border-bottom-left-radius: 0; max-width: 85%; box-shadow: 0 2px 4px rgba(0,0,0,0.05); font-size: 14px; color: #333; line-height: 1.4;';
+        aiMsg.innerHTML = "Thanks for your message! Our AI is analyzing your request and a representative will connect with you shortly.";
+        messagesArea.appendChild(aiMsg);
+        messagesArea.scrollTop = messagesArea.scrollHeight;
+      }, 1000);
+    };
+
+    if (sendBtn) sendBtn.addEventListener('click', sendMessage);
+    if (chatInput) chatInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') sendMessage();
+    });
+  }, 500);
 }
