@@ -128,7 +128,6 @@ footer .footer p {
 
 .redesign-footer-bottom {
   padding: 24px;
-  /* background-color: var(--eds-footer-background, #fbf9fd); */
 }
 
 .redesign-footer-bottom-content {
@@ -163,14 +162,11 @@ footer .footer p {
 
 .redesign-footer-bottom-content-legal-terms-child-text {
   font-size: 1rem;
-  /* text-decoration: none; */
   line-height: 24px;
 }
 
 .redesign-footer-bottom-content-copyright-child-disclaimer-link {
-  /* color: var(--eds-gray-1000, #525457); */
   font-size: 1rem;
-  /* text-decoration: none; */
   line-height: 24px;
 }
 
