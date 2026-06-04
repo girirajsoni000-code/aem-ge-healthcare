@@ -86,17 +86,25 @@ export function decorateMain(main) {
     const sustainabilitySection = document.createElement('div');
     sustainabilitySection.className = 'sustainability-section';
     sustainabilitySection.innerHTML = `
-      <div style="background-color: #f8f6f9; padding: 80px 5%; font-family: 'Inter', sans-serif; max-width: 1200px; margin: 0 auto;">
-        <h2 style="font-size: 42px; font-weight: 300; color: #2c2c2c; margin-bottom: 24px; line-height: 1.2;">Our commitment to people and our planet</h2>
-        <p style="font-size: 16px; color: #555; margin-bottom: 32px; line-height: 1.5; max-width: 800px;">
+  <div style="background-color: #f7f3f9; width: 100%;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 60px 40px; box-sizing: border-box; font-family: 'GE Inspira Sans', 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Arial, sans-serif;">
+      <div style="max-width: 700px;">
+        <h1 style="font-family: 'GE Inspira Sans', 'GE Inspira', Arial, sans-serif; font-weight: 300; color: #222222; margin: 0 0 30px 0; line-height: 1.00; letter-spacing: -0.1px;">
+          Our commitment to people and<br>our planet
+        </h1>
+        
+        <p style="font-size: 16px; font-weight: 400; color: #595959; margin: 0 0 40px 0; line-height: 1.6; max-width: 580px;">
           Creating a more sustainable future requires we care for the planet and for its inhabitants. Learn more in GE HealthCare's 2023 Sustainability Report.
         </p>
-        <a href="#" style="color: #6a1b9a; text-decoration: none; font-weight: 700; font-size: 14px; display: inline-flex; align-items: center; gap: 8px;">
+        
+        <a href="#" style="color: #711f8e; text-decoration: none; font-weight: 700; font-size: 15px; display: inline-flex; align-items: center; target-density: 100%;">
           Download the report 
-          <span style="font-size: 16px; font-weight: 300;">&gt;</span>
+          <span style="font-size: 18px; font-weight: 300; margin-left: 8px; line-height: 1;">&gt;</span>
         </a>
       </div>
-    `;
+    </div>
+  </div>
+`;
 
     const wrapper = document.createElement('div');
     wrapper.className = 'sustainability-section-wrapper';

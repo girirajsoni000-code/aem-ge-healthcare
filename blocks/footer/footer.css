@@ -3,24 +3,178 @@ footer {
   font-size: var(--body-font-size-xs);
 }
 
-footer .footer > div {
-  margin: auto;
-  max-width: 1200px;
-  padding: 40px 24px 24px;
+footer .footer>div {
+  margin: 0;
+  max-width: 100%;
+  padding: 0;
 }
 
 footer .footer p {
   margin: 0;
 }
 
-@media (width >= 600px) {
-  footer .footer > div {
-    padding: 40px 28px 24px;
+@media (width >=600px) {
+  footer .footer>div {
+    padding: 0;
   }
 }
 
-@media (width >= 900px) {
-  footer .footer > div {
-    padding: 40px 32px 24px;
+@media (width >=900px) {
+  footer .footer>div {
+    padding: 0;
   }
+}
+
+/* Redesign Footer */
+.redesign-footer {
+  /* background-color: var(--eds-footer-background, #fbf9fd); */
+  color: var(--typography-secondary, #5b5b67);
+  font-family: "GE Inspira Serif", Helvetica, Arial, sans-serif;
+}
+
+.redesign-footer-top {
+  padding: 40px 24px;
+  border-bottom: 1px solid var(--eds-gray-400, #d7d8db);
+}
+
+.redesign-footer-top-content {
+  max-width: var(--max-content-width, 1188px);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+
+.redesign-footer-top-content-core-items {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.redesign-footer-top-content-core-items-logo img {
+  height: 32px;
+  width: auto;
+}
+
+.redesign-footer-top-content-core-items-utility {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.redesign-footer-top-content-core-items-utility-link {
+  color: var(--typography-secondary, #5b5b67);
+  font-size: var(--font-size-sm, 0.875rem);
+  text-decoration: none;
+  font-weight: var(--font-weight-semi-bold, 600);
+}
+
+.redesign-footer-top-content-core-items-utility-link:hover {
+  color: var(--interaction, #6022a6);
+}
+
+.redesign-footer-top-content-country-social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+@media (width >=768px) {
+  .redesign-footer-top-content-country-social-links {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.ge-location-selector__wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  color: var(--typography-secondary, #5b5b67);
+}
+
+.ge-location-selector__location-title {
+  font-size: var(--font-size-sm, 0.875rem);
+  margin: 0;
+  font-weight: var(--font-weight-semi-bold, 600);
+}
+
+.ge-location-selector__wrap svg {
+  fill: currentcolor;
+}
+
+.redesign-footer-top-content-country-social-links-child {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.redesign-footer-top-content-country-social-links-child-socialIcon {
+  color: var(--typography-secondary, #5b5b67);
+  transition: color 0.2s ease;
+}
+
+.redesign-footer-top-content-country-social-links-child-socialIcon:hover {
+  color: var(--interaction, #6022a6);
+}
+
+.redesign-footer-top-content-country-social-links-child-socialIcon svg {
+  fill: currentcolor;
+  width: 24px;
+  height: 24px;
+}
+
+.redesign-footer-bottom {
+  padding: 24px;
+  /* background-color: var(--eds-footer-background, #fbf9fd); */
+}
+
+.redesign-footer-bottom-content {
+  max-width: var(--max-content-width, 1188px);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media (width >=960px) {
+  .redesign-footer-bottom-content {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.redesign-footer-bottom-content-legal-terms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+}
+
+.redesign-footer-bottom-content-legal-terms-child:not(.disclaimer) {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 8px 24px;
+  align-items: center;
+}
+
+.redesign-footer-bottom-content-legal-terms-child-text {
+  font-size: 1rem;
+  /* text-decoration: none; */
+  line-height: 24px;
+}
+
+.redesign-footer-bottom-content-copyright-child-disclaimer-link {
+  /* color: var(--eds-gray-1000, #525457); */
+  font-size: 1rem;
+  /* text-decoration: none; */
+  line-height: 24px;
+}
+
+.redesign-footer-bottom-content-copyright-child-disclaimer-link:hover {
+  color: var(--interaction, #6022a6);
+  text-decoration: underline;
 }
