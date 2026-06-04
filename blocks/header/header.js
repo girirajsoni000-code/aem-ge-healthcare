@@ -351,7 +351,6 @@ export default async function decorate(block) {
 
         if (isValid) {
           // Form is valid, handle successful submission here
-          console.log('Form is valid. Submitting...');
         }
       });
     }
