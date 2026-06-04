@@ -6,7 +6,7 @@ import { getMetadata } from '../../scripts/aem.js';
   */
 export default async function decorate(block) {
   // load footer as fragment
-  const footerMeta = getMetadata('footer');
+  // const footerMeta = getMetadata('footer');
 
   // decorate footer DOM
   block.textContent = '';
