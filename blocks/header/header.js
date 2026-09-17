@@ -112,7 +112,7 @@ export default async function decorate(block) {
 
   const heroImageContainer = document.createElement('div');
   heroImageContainer.className = 'header-hero-image';
-  heroImageContainer.innerHTML = '<img src="https://www.gehealthcare.in/-/jssmedia/gehc/us/images/home/banner/18-06-2024/sustainability-hero---1920x760.jpg?h=760&iar=0&w=1920&rev=-1&hash=E68534D9264C09373F82A9EF911BF716" alt="Hero Image" style="width: 100%; height: auto; display: block; object-fit: cover; max-height: 760px;" />';
+  heroImageContainer.innerHTML = '<img src="https://s7d9.scene7.com/is/image/gehealthcare/sustainability-hero---1920x760-1" alt="Hero Image" style="width: 100%; height: auto; display: block; object-fit: cover; max-height: 760px;" />';
   block.append(heroImageContainer);
 
   // Navbar scrolls normally with page

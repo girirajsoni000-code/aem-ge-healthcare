@@ -460,3 +460,18 @@ button.ge-secondary-navigation__cta-btn:hover {
 .ge-cdx-header-redesign__nav-menu-item {
   cursor: pointer;
 }
+
+/* Fullwidth Hero Video */
+.fullwidth-video {
+  width: 100%;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.fullwidth-video video {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  max-height: 760px;
+}
